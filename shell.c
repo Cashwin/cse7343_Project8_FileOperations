@@ -62,7 +62,7 @@ int find(char* command) {
     char* command2 = "execute\0";
     if(compare(command, command1) == 1) {                   // if type.
         return 1;
-    } else if(compare(command, command2) == 1) {            // if exeecute.
+    } else if(compare(command, command2) == 1) {            // if execute.
         return 2;
     } else {
         return 0;
@@ -81,19 +81,19 @@ void storeArgument(char * originalString, char * String, int num) {
     while(Arg != num) {
         while(originalString[i] != ' ') {
             if(originalString[i] == 0x0) {
-                interrupt(0x21, 0, "Invalid command!\n\0", 0, 0);
+                interrupt(0x21, 0, "Invalid command!!!\n\0", 0, 0);
                 return;
             }
             i++;
         }
-        i++;
         Arg++;
+        i++;
     }
     
     while(originalString[i] != ' ' && originalString[i] != 0x0) {        // copy originalString to String.
         String[j] = originalString[i];
-        i++;
         j++;
+        i++;
     }
     String[j] = 0x0;
 }
@@ -112,7 +112,6 @@ int compare(char* String1, char* String2) {
         i++;
 
     }
-
     return output;
 }
 //<------------------------------------Compare Ends---------------------------------->
