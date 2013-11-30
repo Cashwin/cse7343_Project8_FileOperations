@@ -3,9 +3,9 @@
    Ashwin Chandrasekhar and Preethi Rajagopalan
 */
 
-int find(char * command);                                          // Finds the file in loaded in memory.
-int compare(char * String1, char * String2);                       // Used for comparing two Strings.
-void storeArgument(char * originalString, char * String, int num); // Used to splitting the command entered.
+int find(char* command);                                          // Finds the file in loaded in memory.
+void storeArgument(char* originalString, char* String, int num); // Used to splitting the command entered.
+int compare(char* String1, char* String2);                       // Used for comparing two Strings.
 
 //<---------------------------------- Main Function-------------------------------->
 int main() {
@@ -73,7 +73,7 @@ int find(char* command) {
 
 
 //<------------------------------------storeArgument Function----------------------->
-void storeArgument(char * originalString, char * String, int num) {
+void storeArgument(char* originalString, char* String, int num) {
     int i = 0;
     int j = 0;
     int Arg = 0;
