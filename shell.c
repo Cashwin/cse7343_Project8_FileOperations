@@ -2,33 +2,33 @@
    A simple shell that displays a message and executes a Program.
    Ashwin Chandrasekhar and Preethi Rajagopalan
 */
-/*
+
 int find(char * command);                                          // Finds the file in loaded in memory.
 int compare(char * String1, char * String2);                       // Used for comparing two Strings.
 void storeArgument(char * originalString, char * String, int num); // Used to splitting the command entered.
-*/
+
 //<---------------------------------- Main Function-------------------------------->
 int main() {
-/*  char command[90];
+    char command[90];
     int x;
     int commandNum = 0;
     char arg0[45];
     char arg1[45];
     char buffer[13312];
-*/    
+
      while(1) {
-/*      for(x = 0; x < 90; x++) {
+        for(x = 0; x < 90; x++) {
             command[x] = 0x0;
             if(x < 45){
                 arg0[x] = 0x0;
                 arg1[x] = 0x0;
-            }
-*/
+           }
+
         }
 
         interrupt(0x21, 0, "SHELL STARTS\0\n", 0, 0);                    // For Printing.
         interrupt(0x21, 0, ">", 0, 0);                                   // For Printing.
-/*
+
         interrupt(0x21, 1, command, 0, 0);                               // For readString.
         storeArgument(command, arg0, 0);
         commandNum = find(arg0);
@@ -41,29 +41,29 @@ int main() {
             interrupt(0x21, 3, arg1, buffer, 0);
             interrupt(0x21, 0, buffer, 0, 0);
             break;
-        } else if(commandNum == 2) {
-            storeArgument(command, arg1, 1);
-            interrupt(0x21, 6, arg1, 0x2000, 0);
-            break;
+        } //else if(commandNum == 2) {
+            //storeArgument(command, arg1, 1);
+            //interrupt(0x21, 6, arg1, 0x2000, 0);
+            //break;
         } else {
             break;
         }    
       }
-*/
+
     return 0;
 }
 
 //<------------------------------------Main Ends------------------------------------>
-/*
+
 
 //<------------------------------------Find Function-------------------------------->
 int find(char* command) {
     char* command1 = "type\0";          
-    char* command2 = "execute\0";
+    //char* command2 = "execute\0";
     if(compare(command, command1) == 1) {                   // if type.
         return 1;
-    } else if(compare(command, command2) == 1) {            // if exeecute.
-        return 2;
+    } //else if(compare(command, command2) == 1) {            // if exeecute.
+        //return 2;
     } else {
         return 0;
     }
@@ -116,4 +116,3 @@ int compare(char* String1, char* String2) {
     return output;
 }
 //<------------------------------------Compare Ends---------------------------------->
-*/
