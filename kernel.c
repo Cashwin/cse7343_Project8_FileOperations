@@ -40,10 +40,10 @@ int main() {
     //interrupt(0x21, 3, "messag\0", buffer, 0);    // Project08 step 1
     //interrupt(0x21, 0, buffer, 0, 0);             // Project08 step 1
     //printString("\r\n\0");
-    interrupt(0x21, 6, "tstprg\0", 0x2000, 0);    // Project08 step 2
-    printString("\r\n\0");
-    //interrupt(0x21, 7, "tstpr2\0", 0x2000, 0);    // Project08 step 3
+    //interrupt(0x21, 6, "tstprg\0", 0x2000, 0);    // Project08 step 2
     //printString("\r\n\0");
+    interrupt(0x21, 7, "tstpr2\0", 0x2000, 0);    // Project08 step 3
+    printString("\r\n\0");
     //interrupt(0x21, 6, "shell\0", 0x2000, 0);       // Project08 step 4
     //interrupt(0x21, 7, 0, 0, 0);                    // Project08 step 4
  	while(1) {
@@ -204,10 +204,10 @@ void executeProgram(char* name, int segment) {              // Loads and execute
 	launchProgram(segment);                                // Uses the predefined launchProgram from kernel.asm
 }
 //-------------------------------------executeProgram ends------------------------------->
-/*
+
 //-------------------------------------terminate starts---------------------------------->
-void terminate() {                                         
-	interrupt(0x21, 6, "shell\0", 0x2000, 0);
+void terminate() {
+    while(1);                                         
+	//interrupt(0x21, 6, "shell\0", 0x2000, 0);
 	}
 //-------------------------------------terminate ends------------------------------------>
-*/
