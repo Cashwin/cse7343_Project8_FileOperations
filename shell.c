@@ -41,10 +41,10 @@ int main() {
             interrupt(0x21, 3, arg1, buffer, 0);
             interrupt(0x21, 0, buffer, 0, 0);
             break;
-        } //else if(commandNum == 2) {
-            //storeArgument(command, arg1, 1);
-            //interrupt(0x21, 6, arg1, 0x2000, 0);
-            //break;
+        } else if(commandNum == 2) {
+            storeArgument(command, arg1, 1);
+            interrupt(0x21, 6, arg1, 0x2000, 0);
+            break;
         } else {
             break;
         }    
@@ -59,11 +59,11 @@ int main() {
 //<------------------------------------Find Function-------------------------------->
 int find(char* command) {
     char* command1 = "type\0";          
-    //char* command2 = "execute\0";
+    char* command2 = "execute\0";
     if(compare(command, command1) == 1) {                   // if type.
         return 1;
-    } //else if(compare(command, command2) == 1) {            // if exeecute.
-        //return 2;
+    } else if(compare(command, command2) == 1) {            // if exeecute.
+        return 2;
     } else {
         return 0;
     }
