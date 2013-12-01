@@ -36,12 +36,12 @@ int main() {
         if(commandNum == 0) {
             interrupt(0x21, 0, "Command not found!\n\0", 0, 0);
             break;
-        } else if(commandNum == 1) {
+        } else if(commandNum == 1) {             // Processing type
             storeArgument(command, arg1, 1);
             interrupt(0x21, 3, arg1, buffer, 0);
             interrupt(0x21, 0, buffer, 0, 0);
             break;
-        } else if(commandNum == 2) {
+        } else if(commandNum == 2) {               // Processing execute
             storeArgument(command, arg1, 1);
             interrupt(0x21, 6, arg1, 0x2000, 0);
             break;
@@ -58,11 +58,9 @@ int main() {
 
 //<------------------------------------Find Function-------------------------------->
 int find(char* command) {
-    char* command1 = "type\0";          
-    char* command2 = "execute\0";
-    if(compare(command, command1) == 1) {                   // if type.
+    if(compare(command, "type\0") == 1) {                   // if type.
         return 1;
-    } else if(compare(command, command2) == 1) {            // if execute.
+    } else if(compare(command, "execute\0") == 1) {            // if execute.
         return 2;
     } else {
         return 0;
